@@ -50,7 +50,7 @@ import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 
 function App() {
-
+  const [totalPrice, setTotalPrice] = useState('');
   const [stripeApiKey, setStripeApiKey] = useState('');
 
   useEffect(() => {
@@ -81,11 +81,7 @@ function App() {
           <ProtectedRoute path="/shipping" component={Shipping} />
           <ProtectedRoute path="/confirm" component={ConfirmOrder} exact />
           <ProtectedRoute path="/success" component={OrderSuccess} />
-          {stripeApiKey &&
-            <Elements stripe={loadStripe(stripeApiKey)}>
-              <ProtectedRoute path="/payment" component={Payment} />
-            </Elements>
-          }
+          <ProtectedRoute path="/payment" component={Payment} />
 
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />

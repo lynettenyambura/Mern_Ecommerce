@@ -614,3 +614,49 @@ ul.CTAs a {
   font-size: 0.8rem;
   color: grey;
 }
+.paymentContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+  /* border: 2px solid #fa9c23; */
+} 
+.paymentCard{
+  margin-top: 1vh;
+  background-color: aliceblue;
+  display: flex;
+  border-radius: 10px;
+  flex-direction: row;
+  width: 30%;
+  justify-content: space-between;
+}
+.orderSummary{
+  margin-top: 1vh;
+  background-color: aliceblue;
+  display: flex;
+  border-radius: 10px;
+  flex-direction: row;
+  width: 30%;
+  justify-content: space-between;
+}
+.payButton{
+  margin-top: 2vh;
+  background-color: #fa9c23;
+  border-color: #fa9c23;
+  width: 30%;
+  border-radius: 4px;
+  color: white;
+  outline: none;
+  border: none;
+}
+.paymentAmount{
+  margin-top: 1vh;
+
+  width: 30%;  
+}
+.paymentAmount input{
+  width: 100%;
+  border-radius: 4px;
+  outline: none;
+}
