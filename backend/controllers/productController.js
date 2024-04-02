@@ -176,15 +176,26 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
 
 
 // Create new review   =>   /api/v1/review
+//const axios  =
+const axios =  require('axios');
 exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
 
-    const { rating, comment, productId } = req.body;
-
+    const { rating, comment,productId } = req.body;
+    const user_review = comment;
+    let sentiment;
+   async  function get_sentiment(user_review) {
+        const response   = await axios.post('http://localhost:8000/predict', { "review": user_review });
+        sentiment = response.data.Sentiment;
+   };
+           
+    await get_sentiment(user_review);
+   console.log("Sentiment predicted: ",sentiment);
     const review = {
         user: req.user._id,
         name: req.user.name,
         rating: Number(rating),
-        comment
+        comment,
+        sentiment: sentiment
     }
 
     const product = await Product.findById(productId);
@@ -198,6 +209,7 @@ exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
             if (review.user.toString() === req.user._id.toString()) {
                 review.comment = comment;
                 review.rating = rating;
+                review.sentiment = sentiment;
             }
         })
 

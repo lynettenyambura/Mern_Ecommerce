@@ -86,7 +86,12 @@ const productSchema = new mongoose.Schema({
             comment: {
                 type: String,
                 required: true
+            },
+            sentiment: {
+                type: String,
+                required: true
             }
+
         }
     ],
     user: {
