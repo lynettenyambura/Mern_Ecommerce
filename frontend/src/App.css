@@ -660,3 +660,20 @@ ul.CTAs a {
   border-radius: 4px;
   outline: none;
 }
+.sentiment {
+  font-style: italic; /* Make the sentiment italic */
+  font-weight: bold; /* Make the sentiment bold */
+  margin-left: 10px; /* Add some space between the comment and the sentiment */
+}
+
+.positive-sentiment {
+  color: green; /* Green color for positive sentiment */
+}
+
+.neutral-sentiment {
+  color: gray; /* Gray color for neutral sentiment */
+}
+
+.negative-sentiment {
+  color: red; /* Red color for negative sentiment */
+}
